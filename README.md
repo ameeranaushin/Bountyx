@@ -2,6 +2,11 @@
 
 Stellar BountyX is a decentralized bounty platform built on the Stellar Soroban smart contract network. It allows anyone to post tasks with an XLM reward locked in a secure on-chain escrow contract. Workers can browse and claim active tasks to mark them in-progress, and submit completed work. The bounty poster can then approve the work to release the locked XLM reward directly to the worker's wallet, or reject it to reset the bounty. If a task remains uncompleted past a user-defined timeout, the poster can claim a refund to recover their locked funds.
 
+## Deployed Contract Information
+
+- **Contract ID**: `CBETYPBVE2PTA2VGKG4UZIUNVAJCXSP27S4YR7RZX3UYNXDP5TFE3YAW`
+- **Explorer Link**: [Stellar.expert Testnet Contract](https://stellar.expert/explorer/testnet/contract/CBETYPBVE2PTA2VGKG4UZIUNVAJCXSP27S4YR7RZX3UYNXDP5TFE3YAW)
+
 ## Tech Stack
 - **Smart Contract**: Rust with Soroban SDK (`soroban-sdk = "21.0.0"`)
 - **Frontend**: Next.js 14 (App Router) + TypeScript + Tailwind CSS
@@ -78,27 +83,32 @@ stellar contract deploy \
   --source my-key \
   --network testnet
 ```
-Copy the returned **Contract ID** (looks like `CDLZ...` or similar) — you will need this to configure the frontend environment variable in Step 5.
+Copy the returned **Contract ID** (starts with `C...`).
 
 ---
 
 ## Step 4 — Install Frontend Dependencies
-Navigate into the frontend folder and install the Node packages:
+
+At the root directory of the project, run:
+
 ```bash
-cd ../frontend
 npm install
 ```
 
 ---
 
 ## Step 5 — Configure Environment Variables
-Copy the env template from the root into the frontend directory:
+
+Copy the example environment file:
+
 ```bash
-cp ../.env.example .env.local
+cp .env.example .env
 ```
-Open `.env.local` in a text editor and fill in your deployed contract ID:
+
+Open `.env` and paste the deployed Contract ID into `NEXT_PUBLIC_CONTRACT_ID`.
+
 ```env
-NEXT_PUBLIC_CONTRACT_ID=YOUR_DEPLOYED_CONTRACT_ID_HERE
+NEXT_PUBLIC_CONTRACT_ID=CBETYPBVE2PTA2VGKG4UZIUNVAJCXSP27S4YR7RZX3UYNXDP5TFE3YAW
 NEXT_PUBLIC_NETWORK_PASSPHRASE=Test SDF Network ; September 2015
 NEXT_PUBLIC_RPC_URL=https://soroban-testnet.stellar.org
 NEXT_PUBLIC_HORIZON_URL=https://horizon-testnet.stellar.org

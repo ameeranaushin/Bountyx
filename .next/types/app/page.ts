@@ -1,4 +1,4 @@
-// File: /Applications/Web/catalyst-projs/bountyx/frontend/app/page.tsx
+// File: /Applications/Web/catalyst-updated-projs/Bountyx/app/page.tsx
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
